@@ -1,0 +1,13 @@
+#lang racket
+(define (fixed-point f first-guess)
+  (define tolerance 0.00001)
+  (define (close-enough? a b)
+    (< (abs (- a b)) tolerance))
+  ;定义辅助函数
+  (define (try-next now)
+    (let ((next (f now)))
+      (if (close-enough? next now)
+          next
+          (try-next next))))
+  ;未辅助函数设置参数
+  (try-next first-guess))

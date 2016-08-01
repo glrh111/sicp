@@ -1,0 +1,31 @@
+#lang racket
+;; 定义线段表示
+(define (make-segment p1 p2)
+  (cons p1 p2))
+(define (start-segment x)
+  (car x))
+(define (end-segment x)
+  (cdr x))
+;; 定义实数点的表示
+(define (make-point a b)
+  (cons a b))
+(define (x-point p)
+  (car p))
+(define (y-point p)
+  (cdr p))
+;; 定义线段中点函数
+(define (mid-point s)
+  (make-point (/ (+ (x-point (start-segment s))
+                    (x-point (end-segment s)))
+                 2)
+              (/ (+ (y-point (start-segment s))
+                    (y-point (end-segment s)))
+                 2)))
+;; 与打印有关的函数
+(define (print-point p)
+  (newline)
+  (display "(")
+  (display (x-point p))
+  (display ", ")
+  (display (y-point p))
+  (display ")"))

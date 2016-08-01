@@ -1,0 +1,29 @@
+#lang racket
+
+
+
+
+
+
+; 定义运算
+; add-comlex z1 z2
+(define (add-complex z1 z2)
+  (make-from-real-imag (+ (real-part z1) (real-part z2))
+                       (+ (imag-part z1) (imag-part z2))))
+; sub-complex z1 z2
+(define (sub-complex z1 z2)
+  (make-from-real-imag (- (real-part z1) (real-part z2))
+                       (- (imag-part z1) (imag-part z2))))
+; mul-complex z1 z2
+(define (mul-complex z1 z2)
+  (make-from-mag-ang (* (magnitude z1) (magnitude z2))
+                     (+ (angle z1) (angle z2))))
+; div-complex z1 z2
+(define (div-complex z1 z2)
+  (make-from-mag-ang (/ (magnitude z1) (magnitude z2))
+                     (- (angle z1) (angle z2))))
+
+  
+;; 测试数据
+(define x (make-from-mag-ang 2 3.1))
+(define y (make-from-mag-ang 2 3.1))

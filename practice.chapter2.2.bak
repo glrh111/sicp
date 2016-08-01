@@ -1,0 +1,2 @@
+; accumulate 的实现
+(define (accumulate operate intial sequence)

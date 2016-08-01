@@ -1,0 +1,18 @@
+#lang racket
+;将序对定义为乘积
+(define (make-cons a b)
+  (* (expt 2 a) (expt 3 b)))
+;定义(car double)
+(define (car d)
+  (define (iter tmp count)
+    (if (= (remainder tmp 2) 0)
+        (iter (/ tmp 2) (+ count 1))
+        count))
+  (iter d 0))
+;定义(cdr double)
+(define (cdr d)
+  (define (iter tmp count)
+    (if (= (remainder tmp 3) 0)
+        (iter (/ tmp 3) (+ 1 count))
+        count))
+  (iter d 0))
